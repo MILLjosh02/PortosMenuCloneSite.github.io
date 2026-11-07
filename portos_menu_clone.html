@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Porto's Bakery & Cafe — Menu Demo</title>
+<style>
+:root{--navy:#132b45;--blue:#1f4e79;--gold:#e6b84b;--cream:#fffaf1;--ink:#242a31;--muted:#6d747c;--line:#e9e2d6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}button,input{font:inherit}.topbar{background:var(--navy);color:#fff;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.08em}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.nav{max-width:1180px;margin:auto;padding:15px 22px;display:flex;align-items:center;gap:26px}.brand{display:flex;align-items:center;gap:10px;min-width:max-content}.logo{width:43px;height:43px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--navy);font-family:Georgia,serif;font-weight:800;font-size:18px}.brand strong{display:block;color:var(--navy);font-family:Georgia,serif;font-size:20px;line-height:1.1}.brand small{font-size:10px;letter-spacing:.17em;color:#8b6b2b}.navlinks{display:flex;gap:22px;align-items:center;font-size:13px;font-weight:650;color:#344252}.navlinks a:hover{color:#a87510}.spacer{flex:1}.search{position:relative;max-width:230px;flex:1}.search input{width:100%;border:1px solid var(--line);border-radius:999px;padding:10px 14px 10px 36px;outline:none}.search input:focus{border-color:var(--blue)}.search span{position:absolute;left:13px;top:9px;color:var(--muted)}.cart{border:0;background:var(--navy);color:white;padding:10px 15px;border-radius:999px;font-weight:700;cursor:pointer;white-space:nowrap}.cart b{background:var(--gold);color:var(--navy);padding:2px 7px;border-radius:20px;margin-left:6px}
+.hero{background:linear-gradient(100deg,rgba(14,35,55,.91),rgba(14,35,55,.43)),url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1800&q=85') center/cover;color:#fff;min-height:390px;display:flex;align-items:center}.hero-inner{max-width:1180px;width:100%;margin:auto;padding:58px 22px}.eyebrow{font-size:11px;letter-spacing:.22em;font-weight:800;color:#f0cb70;text-transform:uppercase}.hero h1{font-family:Georgia,serif;font-size:clamp(38px,5vw,64px);line-height:1.03;max-width:600px;margin:15px 0}.hero p{max-width:480px;color:#f3f2ed;line-height:1.7}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{border:0;border-radius:4px;padding:13px 19px;font-weight:750;cursor:pointer}.btn-gold{background:var(--gold);color:#182b3e}.btn-outline{border:1px solid #ffffff9c;background:transparent;color:#fff}
+main{max-width:1180px;margin:auto;padding:36px 22px 80px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}.section-head h2{font-family:Georgia,serif;font-size:32px;color:var(--navy);margin:0 0 6px}.section-head p{margin:0;color:var(--muted);font-size:14px}.filters{display:flex;gap:9px;overflow:auto;padding:3px 0 18px}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 15px;white-space:nowrap;cursor:pointer;color:#495563;font-size:13px;font-weight:700}.filter.active,.filter:hover{background:var(--navy);color:white;border-color:var(--navy)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.card{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #152a3d12}.photo{height:174px;position:relative;background:#f5eddf;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}.card:hover .photo img{transform:scale(1.04)}.tag{position:absolute;top:11px;left:11px;background:#fffaf1;color:#71501a;padding:5px 8px;border-radius:3px;font-size:10px;text-transform:uppercase;font-weight:800;letter-spacing:.06em}.card-body{padding:15px}.card h3{font-family:Georgia,serif;color:var(--navy);font-size:18px;margin:0 0 7px}.desc{font-size:12px;line-height:1.55;color:var(--muted);min-height:38px;margin:0 0 14px}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{font-weight:800;color:#273c50}.add{border:0;background:#f4e6c3;color:#1b344a;border-radius:4px;padding:8px 11px;font-size:12px;font-weight:800;cursor:pointer}.add:hover{background:var(--gold)}.empty{grid-column:1/-1;text-align:center;padding:50px 10px;color:var(--muted)}.note{background:var(--cream);border:1px solid #f0e4cf;border-radius:8px;padding:18px 20px;margin-top:34px;font-size:13px;color:#665b49;line-height:1.6}.footer{background:var(--navy);color:#e9eef3;padding:35px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer strong{font-family:Georgia,serif;font-size:20px}.footer p{color:#c2ccd5;font-size:12px;line-height:1.6;max-width:470px}.toast{position:fixed;bottom:20px;right:20px;background:#132b45;color:#fff;padding:13px 17px;border-radius:7px;box-shadow:0 8px 25px #0002;opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s;z-index:30}.toast.show{opacity:1;transform:translateY(0)}.cart-panel{position:fixed;right:18px;top:82px;width:min(360px,calc(100vw - 36px));background:white;border:1px solid var(--line);box-shadow:0 18px 55px #132b4530;border-radius:10px;padding:18px;z-index:20;display:none}.cart-panel.open{display:block}.cart-panel h3{font-family:Georgia,serif;color:var(--navy);margin:0 0 12px}.cart-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}.cart-total{display:flex;justify-content:space-between;font-weight:800;margin:16px 0}.checkout{width:100%;background:var(--gold);border:0;border-radius:4px;padding:12px;font-weight:800;cursor:pointer}.fineprint{font-size:11px;color:var(--muted);margin-top:10px}
+@media(max-width:900px){.navlinks{display:none}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.search{max-width:none}}
+@media(max-width:650px){.nav{gap:12px;padding:12px 15px}.brand strong{font-size:16px}.brand small{font-size:8px}.logo{width:37px;height:37px}.search{display:none}.hero{min-height:340px}.hero-inner{padding:42px 20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}main{padding:28px 15px 55px}.photo{height:135px}.card-body{padding:12px}.card h3{font-size:16px}.desc{font-size:11px}.section-head h2{font-size:28px}.section-head{align-items:start;flex-direction:column}}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.photo{height:190px}}
+</style>
+</head>
+<body>
+<div class="topbar">BAKED WITH LOVE • MADE FRESH DAILY • A FAN-MADE MENU DEMO * MADE BY JOSHUA MILLONADO </div>
+<header><nav class="nav" aria-label="Main navigation">
+<a class="brand" href="#" aria-label="Porto's Bakery demo home"><span class="logo">P</span><span><strong>Porto's Bakery</strong><small>BAKERY & CAFE</small></span></a>
+<div class="navlinks"><a href="#menu">Menu</a><a href="#favorites">Customer Favorites</a><a href="#about">Our Story</a></div><div class="spacer"></div>
+<label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search the menu…" aria-label="Search menu"></label>
+<button class="cart" id="cartButton">Order <b id="cartCount">0</b></button>
+</nav></header>
+<section class="hero">
+<div class="hero-inner"><div class="eyebrow">A little taste of happiness</div><h1>Something delicious<br>is always baking.</h1><p>Discover bakery favorites, savory bites, and sweet treats inspired by the warmth of a neighborhood bakery.</p><div class="hero-actions"><a class="btn btn-gold" href="#menu">Explore the Menu ↓</a><a class="btn btn-outline" href="#favorites">See Favorites</a></div></div>
+</section>
+<main id="menu">
+<div class="section-head"><div><div class="eyebrow" style="color:#a87510;margin-bottom:8px">Fresh from the bakery</div><h2>Explore Our Menu</h2><p>Find a new favorite for breakfast, lunch, or a little treat.</p></div></div>
+<div class="filters" id="filters" role="group" aria-label="Filter menu categories"></div>
+<div class="grid" id="menuGrid"></div>
+<div class="note" id="about"><strong>A note about this demo:</strong> This is an unofficial, fan-made front-end practice project inspired by Porto’s Bakery & Cafe. Items, descriptions, prices, and ordering are illustrative and are not an official menu or live ordering service. Check Porto’s official channels for current offerings, allergens, and prices.</div>
+</main>
+<footer class="footer"><div class="footer-inner"><div><strong>Porto's Bakery & Cafe</strong><p>A practice clone for learning HTML, CSS, and JavaScript. Not affiliated with or endorsed by Porto’s Bakery & Cafe.</p></div><div><strong>Made for the web</strong><p>Responsive layout · Search · Category filters · Interactive demo cart</p></div></div></footer>
+<div class="cart-panel" id="cartPanel" aria-live="polite"><h3>Your order</h3><div id="cartItems"></div><div class="cart-total"><span>Estimated total</span><span id="cartTotal">$0.00</span></div><button class="checkout" id="checkout">Continue (demo only)</button><div class="fineprint">Checkout is disabled in this practice clone.</div></div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const products = [
+ {id:1,name:"Cheese Roll",category:"Savory",price:1.25,tag:"Bakery favorite",desc:"Flaky pastry wrapped around a creamy, savory cheese filling.",img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"},
+ {id:2,name:"Potato Ball",category:"Savory",price:1.45,tag:"Customer favorite",desc:"A crisp golden bite with a seasoned potato center.",img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"},
+ {id:3,name:"Chicken Empanada",category:"Savory",price:1.65,tag:"Savory",desc:"A hand-held pastry with a comforting, flavorful filling.",img:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"},
+ {id:4,name:"Guava & Cheese Pastry",category:"Sweet",price:1.75,tag:"Sweet favorite",desc:"A buttery, flaky pastry with fruit and creamy cheese notes.",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=700&q=80"},
+ {id:5,name:"Fruit Tart",category:"Desserts",price:3.95,tag:"Sweet treat",desc:"A delicate tart topped with colorful seasonal fruit.",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80"},
+ {id:6,name:"Chocolate Chip Cookie",category:"Desserts",price:2.25,tag:"Classic",desc:"A golden bakery cookie with rich chocolate chips.",img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"},
+ {id:7,name:"Cortadito",category:"Drinks",price:3.25,tag:"Coffee bar",desc:"A small, bold coffee drink balanced with steamed milk.",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"},
+ {id:8,name:"Iced Coffee",category:"Drinks",price:3.75,tag:"Chilled",desc:"Refreshing iced coffee for your bakery break.",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"},
+ {id:9,name:"Celebration Cake",category:"Cakes",price:29.95,tag:"For sharing",desc:"A celebratory centerpiece for birthdays and special days.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+ {id:10,name:"Breakfast Sandwich",category:"Breakfast",price:6.95,tag:"Morning pick",desc:"A warm breakfast sandwich for a satisfying start.",img:"https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"},
+ {id:11,name:"Cinnamon Roll",category:"Sweet",price:3.25,tag:"Fresh baked",desc:"Soft swirls of cinnamon and a light sweet glaze.",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=700&q=80"},
+ {id:12,name:"Seasonal Pastry Box",category:"Bakery Boxes",price:18.95,tag:"Shareable",desc:"A mix of bakery-style treats for a table or gathering.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484df?auto=format&fit=crop&w=700&q=80"}
+];
+// Replace a malformed illustrative image URL with a valid coffee image URL.
+products[7].img = "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80";
+const categories=["All","Customer Favorites","Savory","Sweet","Desserts","Drinks","Cakes","Breakfast","Bakery Boxes"];
+let active="All", cart={};
+const grid=document.getElementById("menuGrid"), filters=document.getElementById("filters"), search=document.getElementById("search");
+function renderFilters(){filters.innerHTML=categories.map(c=>`<button class="filter ${c===active?"active":""}" data-category="${c}">${c}</button>`).join("");}
+function renderMenu(){
+ const q=search.value.trim().toLowerCase();
+ const shown=products.filter(p=>(active==="All"||(active==="Customer Favorites"?p.tag.toLowerCase().includes("favorite"):p.category===active))&&(`${p.name} ${p.category} ${p.desc}`.toLowerCase().includes(q)));
+ grid.innerHTML=shown.length?shown.map(p=>`<article class="card"><div class="photo"><img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#f2dfb7,#d7a96b)'"><span class="tag">${p.tag}</span></div><div class="card-body"><h3>${p.name}</h3><p class="desc">${p.desc}</p><div class="card-bottom"><span class="price">$${p.price.toFixed(2)}</span><button class="add" data-add="${p.id}" aria-label="Add ${p.name} to order">+ Add</button></div></div></article>`).join(""):`<div class="empty">No menu items match that search. Try another term.</div>`;
+}
+function updateCart(){
+ const count=Object.values(cart).reduce((a,b)=>a+b,0);
+ document.getElementById("cartCount").textContent=count;
+ const entries=products.filter(p=>cart[p.id]);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(p=>`<div class="cart-row"><span>${p.name} × ${cart[p.id]}</span><strong>$${(p.price*cart[p.id]).toFixed(2)}</strong></div>`).join(""):'<p style="color:#6d747c;font-size:13px">Your order is empty. Add something tasty!</p>';
+ const total=entries.reduce((sum,p)=>sum+p.price*cart[p.id],0);
+ document.getElementById("cartTotal").textContent=`$${total.toFixed(2)}`;
+}
+filters.addEventListener("click",e=>{const b=e.target.closest("[data-category]");if(!b)return;active=b.dataset.category;renderFilters();renderMenu();});
+grid.addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;const id=Number(b.dataset.add);cart[id]=(cart[id]||0)+1;updateCart();const p=products.find(x=>x.id===id);showToast(`${p.name} added to your order`);});
+search.addEventListener("input",renderMenu);
+document.getElementById("cartButton").addEventListener("click",()=>document.getElementById("cartPanel").classList.toggle("open"));
+document.getElementById("checkout").addEventListener("click",()=>showToast("Demo only — no order was placed."));
+let toastTimer;
+function showToast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2200);}
+renderFilters();renderMenu();updateCart();
+</script>
+</body>
+</html>
